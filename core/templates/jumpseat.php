@@ -14,26 +14,26 @@
 		            <h3 class="box-title">Jumpseat</h3>
 		        </div>
 		        <div class="box-body">
-		            <b>Current Location:</b>
-		                        <hr>
-		                        <P>Cost per Jumpseat Mile: $0.50</P><hr>
-		                         <p>Select your destination:</p>
-		                    <div class="form-group">
-		                    	<form method="post" id="jumpseat" action="<?php echo url('/jumpseat/fly'); ?>">
-			                        <select id="jumpseatdest" name="jumpseatdest" class="form-control">
-										<option value="">Select All</option>
-										<?php
-										foreach($airports as $airport)
-										{
-										echo '<option value="'.$airport->icao.'">'.$airport->icao.' ('.$airport->name.') - Miles: '.round(OperationsData::getAirportDistance($jumpseatdep, $airport->icao)).' - Price: $'.round(OperationsData::getAirportDistance($jumpseatdep, $airport->icao)*0.5).'</option>';
-										}
-										?>
-									</select>
-									<input type="hidden" name="departfrom" value="<?php echo $jumpseatdep; ?>" >
-									<input type="hidden" name="action" value="fly" >
-								</form>
+		            <b>Current Location:</b><?php echo $jumpseatdep; ?>
+                    <hr>
+                    <P>Cost per Jumpseat Mile: $0.50</P><hr>
+                     <p>Select your destination:</p>
+                    <div class="form-group">
+                    	<form method="post" id="jumpseat" action="<?php echo url('/jumpseat/fly'); ?>">
+	                        <select id="jumpseatdest" name="jumpseatdest" class="form-control">
+								<option value="">Select All</option>
+								<?php
+								foreach($airports as $airport)
+								{
+								echo '<option value="'.$airport->icao.'">'.$airport->icao.' ('.$airport->name.') - Miles: '.round(OperationsData::getAirportDistance($jumpseatdep, $airport->icao)).' - Price: $'.round(OperationsData::getAirportDistance($jumpseatdep, $airport->icao)*0.5).'</option>';
+								}
+								?>
+							</select>
+							<input type="hidden" name="departfrom" value="<?php echo $jumpseatdep; ?>" >
+							<input type="hidden" name="action" value="fly" >
+						</form>
 
-		                    </div> 
+                    </div> 
 		        </div>
 		        <div class="box-footer">
                 	<button type="submit" class="btn btn-primary" form="jumpseat">Fly!</button>
