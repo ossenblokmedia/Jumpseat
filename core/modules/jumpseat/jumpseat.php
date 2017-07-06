@@ -28,21 +28,21 @@
 		public function fly()
 		{
 			if (isset($this->post->action)) {
-            switch ($this->post->action) {
-                case 'fly':
+            			switch ($this->post->action) {
+               				case 'fly':
 
-                	$balance_new = ($this->post->balance - $this->post->price);
+                			$balance_new = ($this->post->balance - $this->post->price);
 
-                    $this->processJump($this->post->pilot,$this->post->dest,$balance_new);
-
-                    $this->set('dest',$this->post->dest);
-                    $this->set('from',$this->post->departfrom);
-                    $this->set('price',$this->post->price);
-                    $this->set('pilot',$this->post->pilot);
-                    $this->render('jumpseat_post.php');
-                    break;
-            	}
-        	}
+					    $this->processJump($this->post->pilot,$this->post->dest,$balance_new);
+						
+					    $this->set('dest',$this->post->dest);
+					    $this->set('from',$this->post->departfrom);
+					    $this->set('price',$this->post->price);
+					    $this->set('pilot',$this->post->pilot);
+					    $this->render('jumpseat_post.php');
+					    break;
+            			}
+        		}
 			
 		}
 
