@@ -6,7 +6,8 @@
 
 		public function index()
 		{	
-
+			$aps = OperationsData::getAllAirports();
+			$this->set('airports',$aps);
 			$search = array('p.pilotid' => Auth::$userinfo->pilotid,'p.accepted' => PIREP_ACCEPTED);
       			$jumpseatdep = (!$reports) ? Auth::$userinfo->hub : $reports->arricao;
 
